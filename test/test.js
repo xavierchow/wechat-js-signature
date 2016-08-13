@@ -2,7 +2,7 @@
 
 const chai = require('chai');
 const expect = chai.expect;
-const sign = require('../index').signature;
+const sign = require('../index');
 
 describe('signature', () => {
   it('should be about to signature', () => {

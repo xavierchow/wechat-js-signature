@@ -4,7 +4,7 @@
   "description": "A library building wechat API signature(https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=4_3)",
   "main": "index.js",
   "scripts": {
-    "pretest": "eslint index.js",
+    "pretest": "eslint index.js test/",
     "test": "mocha test/*"
   },
   "repository": {

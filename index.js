@@ -3,7 +3,7 @@
 const crypto = require('crypto');
 
 //algorithm by https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=4_3
-exports.signature = function(param, options) {
+module.exports = function(param, options) {
   options = options || {};
   const stringA = Object.keys(param)
     .filter(key => key !== options.excludedProp)
