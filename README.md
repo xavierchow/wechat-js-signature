@@ -42,6 +42,22 @@ A library building wechat API signature(https://pay.weixin.qq.com/wiki/doc/api/a
   };
   expect(sign(source, opt)).to.be.equal(expected);
 ```
+
+## Cast the key to lowercase when signing the signuare
+```js
+  const sign = require('wechat-js-signature');
+  const expected = '9A0A8659F005D6984697E2CA0A9CF3B7';
+  const source = {
+    appId: 'wxd930ea5d5a258f4f', //the key will be case to `appid`
+    'mch_id': 10000100,
+    'device_info': 1000,
+    body: 'test',
+    'nonce_str': 'ibuaiVcKdpRxkhJA'
+  };
+  const opt = { key: '192006250b4c09247ec02edce69f6a2d', forceLowerCase: true };
+  expect(sign(source, opt)).to.be.equal(expected);
+
+```
 ## Only null or undefined value will be ignored
 ```js
   const source = {
