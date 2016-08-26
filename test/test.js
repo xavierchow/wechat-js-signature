@@ -5,7 +5,7 @@ const expect = chai.expect;
 const sign = require('../index');
 
 describe('signature', () => {
-  it('should be about to signature', () => {
+  it('should be able to signature', () => {
     const expected = '9A0A8659F005D6984697E2CA0A9CF3B7';
     const source = {
       appid: 'wxd930ea5d5a258f4f',
@@ -87,6 +87,24 @@ describe('signature', () => {
     const opt = {
       key: '192006250b4c09247ec02edce69f6a2d',
       excludedProp: 'bar'
+    };
+    expect(sign(source, opt)).to.be.equal(expected);
+  });
+
+  it('should be able to case to lowercase', () => {
+    const expected = '9A0A8659F005D6984697E2CA0A9CF3B7';
+    const source = {
+      appId: 'wxd930ea5d5a258f4f',
+      'mch_id': 10000100,
+      'device_info': 1000,
+      body: 'test',
+      'nonce_str': 'ibuaiVcKdpRxkhJA',
+      BAR: 'baz'
+    };
+    const opt = {
+      key: '192006250b4c09247ec02edce69f6a2d',
+      excludedProp: 'bar',
+      forceLowerCase: true
     };
     expect(sign(source, opt)).to.be.equal(expected);
   });
